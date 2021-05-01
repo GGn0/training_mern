@@ -4,17 +4,23 @@ import mongoose from 'mongoose';
 import cors from 'cors';
 import fs from 'fs';
 
+import ingredientsRoutes from './routes/ingredients.js'
 
 // Create an express instance
-const App = express();
+const app = express();
 
 // Allow cross origin requests.
 // PUT THIS BEFORE OTHER SETTINGS!!
-App.use(cors());
+app.use(cors());
+
+// Setup a prefix for ingredients route.
+// i.e. if you specified a route /yyy in the component
+// it will be reached as /prefix/yyy
+app.use('/ingredients', ingredientsRoutes);
 
 // Set a (large) limit to the request size (forimages)
-App.use(bodyParser.json({limit:"10mb", extended: true}));
-App.use(bodyParser.urlencoded({limit:"10mb", extended: true}));
+app.use(bodyParser.json({limit:"10mb", extended: true}));
+app.use(bodyParser.urlencoded({limit:"10mb", extended: true}));
 
 // Connection string to MongoDB Atlass database
 // mongodb+srv://nutrition_app:<password>@cluster0.yvpy9.mongodb.net/nutrition?retryWrites=true&w=majority
@@ -28,7 +34,7 @@ const PORT = process.env.PORT || 4000;
 mongoose.connect(CONNECTION_URL, {useNewUrlParser: true, useUnifiedTopology: true})
     .then(
         // If the onnection is successful
-        () => App.listen(PORT, () => console.log(`Server running on por: ${PORT}`))
+        () => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
         
         )
     .catch(
