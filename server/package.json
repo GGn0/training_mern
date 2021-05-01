@@ -1,0 +1,27 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Server side of a test MERN stack app",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GGn0/training_mern.git"
+  },
+  "author": "GGn0",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GGn0/training_mern/issues"
+  },
+  "homepage": "https://github.com/GGn0/training_mern#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.12.7",
+    "nodemon": "^2.0.7"
+  }
+}
