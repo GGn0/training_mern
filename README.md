@@ -82,7 +82,8 @@ npm install body-parser \
 cors \
 express \
 mongoose \
-nodemon
+nodemon \
+fs
 ```
 
 - **body-parser**: to send push requests
@@ -90,6 +91,7 @@ nodemon
 - **express**: will be the framework to create the routing of the app
 - **mongoose**: to create models for the data on our database
 - **nodemon**: to restart the server after changes
+- **fs**: to temporarely read the db password from a local file
 
 Edit the package.js file to allow the usage of the new import syntax:
 
@@ -137,5 +139,3 @@ redux-thunk
 > ```sh
 >sudo sysctl -n -w fs.inotify.max_user_watches=16384
 >```
->
->
