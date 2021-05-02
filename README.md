@@ -127,13 +127,15 @@ moment \
 react-file-base64 \
 redux \
 redux-thunk \
-@material-ui/core
+@material-ui/core \
+@material-ui/icons
 ```
 
 - **axios**: will be used to make api requests
 - **moment**: library to work with time and date
 - **react-file-base64**: to convert images into strings using base64 encoding
 - **redux** and **redux-thunk**: To use asynchronous actions
+- **@material-ui**: To use premade components and styles
 
 > :warning: NOTE! If running 'node start' gives an error (something like "ENOSPC: System limit for number of file watchers reached")
 > Just increase the number of allowed file watchers:
