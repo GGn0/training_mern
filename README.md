@@ -126,7 +126,8 @@ npm imstall axios \
 moment \
 react-file-base64 \
 redux \
-redux-thunk
+redux-thunk \
+@material-ui/core
 ```
 
 - **axios**: will be used to make api requests

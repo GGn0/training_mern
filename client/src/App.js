@@ -1,10 +1,36 @@
 import React from 'react';
+import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+
+import Ingredients from './components/ingredients/ingredients.js'
+import IngredientForm from './components/ingredient_form/ingredient_form.js'
+import IngredientsImg from './images/ingredients.png';
 
 // This component is a functional component
 
 const App = () => {
     return (
-        <div><h1>It works!</h1></div>
+        <Container maxwidth='lg'>
+            <AppBar position="static" color="inherit">
+                <Typography variant="h2" align="center">
+                    Ingredients
+                </Typography>
+                <img src={IngredientsImg} alt="ingredients" height="60" />
+            </AppBar>
+            <Grow in>
+                <Container>
+                    <Grid container justify="space-between" alignItems="stretch" spacing={3}>
+                        <Grid item xs={12} sm={7}>
+                            <Ingredients />
+                        </Grid>
+                        <Grid item xs={12} sm={4}>
+                            <IngredientForm />
+                        </Grid>
+                    </Grid>
+                </Container>
+
+            </Grow>
+
+        </Container>
     );
 }
 
