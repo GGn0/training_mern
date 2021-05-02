@@ -6,7 +6,17 @@ import Collapse from '@material-ui/core/Collapse';
 import ExpandLess from '@material-ui/icons/ExpandLess';
 import ExpandMore from '@material-ui/icons/ExpandMore';
 
+import Table from '@material-ui/core/Table';
+import TableCell from '@material-ui/core/TableCell';
+import TableRow from '@material-ui/core/TableRow';
+
+import Check from '@material-ui/icons/Check';
+import Clear from '@material-ui/icons/Clear';
+
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
+
 import useStyles from './style.js'
+
 
 const Ingredient = () => {
     // Use the classes from the style file
@@ -20,30 +30,66 @@ const Ingredient = () => {
         setOpen(!open);
     };
 
+    // Create a function for when you click away from the item
+    const handleClickAway = () => {
+        setOpen(false);
+    };
+
+    // To be read from db: is visible as a dish?
+    const isDish = true;
+
     return (
-        <List
-            component="nav"
-            className={classes.root}
-            >
-                <ListItem button onClick={handleClick}>
-                    {open ? <ExpandLess /> : <ExpandMore />}
-                    <ListItemText primary="Ingredient element" />
-                </ListItem>
-                <Collapse in={open} timeout="auto" unmountOnExit>
-                    <List component="div" disablePadding>
-                        <ListItem className={classes.nested}>
-                            <ListItemText primary="Description" />
-                        </ListItem>
-                        <ListItem className={classes.nested}>
-                            <div>
-                                a
-                                b    
-                            </div>
-                        </ListItem>
-                    </List>     
-                </Collapse>
-            </List>
-       
+        <ClickAwayListener onClickAway = {handleClickAway}>
+            <List
+                component="nav"
+                className={classes.root}
+                >
+                    <ListItem button onClick={handleClick}>
+                        {open ? <ExpandLess /> : <ExpandMore />}
+                        <ListItemText primary="Ingredient element" />
+                    </ListItem>
+                    <Collapse in={open} timeout="auto" unmountOnExit>
+                        <List component="div" disablePadding>
+                            <ListItem className={classes.nested}>
+                                <Table className={classes.table}>
+                                    <TableRow>
+                                        <TableCell variant="head">Serving</TableCell>
+                                        <TableCell align="right">100&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Calories</TableCell>
+                                        <TableCell align="right">0&nbsp;kcal</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Fat</TableCell>
+                                        <TableCell align="right">1&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Carbs</TableCell>
+                                        <TableCell align="right">2&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Proteins</TableCell>
+                                        <TableCell align="right">3&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Fibers</TableCell>
+                                        <TableCell align="right">4&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Sugar</TableCell>
+                                        <TableCell align="right">5&nbsp;g</TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell variant="head">Is dish</TableCell>
+                                        <TableCell align="right">{isDish ? <Check  color="primary"/> : <Clear  color="secondary"/>}</TableCell>
+                                    </TableRow>
+                                </Table>
+                            </ListItem>
+                        </List>     
+                    </Collapse>
+                </List>
+            </ClickAwayListener>
     );
 }
 
