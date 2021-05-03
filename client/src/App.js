@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Container, AppBar, Typography, Grow, Grid } from "@material-ui/core";
+import { useDispatch } from 'react-redux';
 
+import { getIngredients } from './actions/ingredients';
 import Ingredients from './components/ingredients/ingredients.js'
 import IngredientForm from './components/ingredient_form/ingredient_form.js'
 import IngredientsImg from './images/ingredients.png';
 
 // This component is a functional component
-
 const App = () => {
+
+    // Create a hook
+    const dispatch = useDispatch();
+
+    // useEffect
+    useEffect(() => {
+        dispatch(getIngredients());
+    }, [dispatch]);
+
     return (
         <Container maxwidth='lg'>
             <AppBar position="static" color="inherit">

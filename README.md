@@ -126,6 +126,7 @@ npm imstall axios \
 moment \
 react-file-base64 \
 redux \
+react-redux \
 redux-thunk \
 @material-ui/core \
 @material-ui/icons
