@@ -8,7 +8,7 @@ pi@raspberrypi:~$ getconf LONG_BIT
 
 This means that it's not possible to install mongo (or a mongo container) on the machine.
 
-Therefore,for ths project a clud instance will be used (Atlas).
+Therefore, for ths project an instance on [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/) will be used instead.
 
 ## Express and Node
 The server side of the application is handled by Node and Express
