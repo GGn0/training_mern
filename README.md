@@ -18,7 +18,9 @@ The server side of the project is stored in the "server" folder.
 ## React
 React handles the web interface of the appliation and can be found in the "client" folder.
 
-# Preparation
+---
+
+## Preparation
 
 ## Install / Update node + npm
 First synchronise the package index
