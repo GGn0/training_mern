@@ -4,12 +4,12 @@
 
 // As soon as an action is dispatched, thefunction will be executed
 export default (ingredients = [], action) => {
-    switch (action.type) {
-        case 'FETCH_ALL':
-            return action.payload;
-        case 'CREATE':
-            return ingredients;
-        default:
-            return ingredients;
-    }
+  switch (action.type) {
+    case 'FETCH_ALL':
+      return action.payload
+    case 'CREATE':
+      return ingredients
+    default:
+      return ingredients
+  }
 }

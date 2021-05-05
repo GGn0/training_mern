@@ -1,31 +1,29 @@
-import ingredientModel from "../models/ingredient.js";
+import ingredientModel from '../models/ingredient.js'
 
 // Controllers keep the logic separated from the routes
 // This is to make the application more scalable
 
 // not exporting as default. it will be imported by name with { }
 export const getIngredients = async (req, res) => {
-    try {
-        const ingredientsData = await ingredientModel.find();
+  try {
+    const ingredientsData = await ingredientModel.find()
 
-        res.status(200).json(ingredientsData);
-
-    } catch (error) {
-        res.status(404).json({message: error.message});
-    }
-    
+    res.status(200).json(ingredientsData)
+  } catch (error) {
+    res.status(404).json({ message: error.message })
+  }
 }
 
 export const createIngredient = async (req, res) => {
-    const ingr = req.body;
+  const ingr = req.body
 
-    const newIngredient = new ingredientModel(ingr);
-    
-    try {
-        await newIngredient.save();
+  const newIngredient = new ingredientModel(ingr)
 
-        res.status(202).json(newIngredient);
-    } catch (error) {
-        res.status(409).json({message: error.message});
-    }
+  try {
+    await newIngredient.save()
+
+    res.status(202).json(newIngredient)
+  } catch (error) {
+    res.status(409).json({ message: error.message })
+  }
 }
