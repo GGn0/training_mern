@@ -1,4 +1,5 @@
 # MERN stack
+[![Super-Linter](https://github.com/GGn0/training_mern/actions/workflows/superlinter.yml/badge.svg)](https://github.com/GGn0/training_mern/actions/workflows/superlinter.yml)
 ## Mongo
 The raspberry has a 32 bit processor
 ```sh
