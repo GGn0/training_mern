@@ -1,8 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react';
+import {Button, Checkbox, FormControlLabel, TextField, Typography} from '@material-ui/core';
+import InputAdornment from '@material-ui/core/InputAdornment';
 
 const Form = () => {
+
+  // Use the state
+const [ingredientData, setIngredientData] = useState({
+  name: '',
+  ref_qt: 100,
+  is_dish: false,
+  kcals: 0,
+  carbs: 0,
+  fats: 0,
+  proteins: 0,
+  fibers: 0,
+  sugars: 0
+});
+
+  // Once the data has been prepared, submit it
+  const handleSubmit = () => {
+
+  }
+
+  // Functions to clear the form fields
+  const clear = () => {
+
+  }
+  
   return (
-    <h1>Ingredient form</h1>
+    <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <Typography variant="h6">Add an ingredient</Typography>
+      <TextField name="name" variant="outlined" label="Ingredient name" fullWidth value={ingredientData.name} onChange={(e) => setIngredientData({...ingredientData, name: e.target.value})} />
+      <TextField name="ref_qt" variant="outlined" type="number" label="Reference quantity" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.ref_qt} onChange={(e) => setIngredientData({...ingredientData, ref_qt: e.target.value})} />
+      <TextField name="kcals" variant="outlined" type="number" label="Kcals" endAdornment={<InputAdornment position="end">kcal</InputAdornment>} fullWidth value={ingredientData.kcals} onChange={(e) => setIngredientData({...ingredientData, kcals: e.target.value})} />
+      <TextField name="carbs" variant="outlined" type="number" label="Carbs" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.carbs} onChange={(e) => setIngredientData({...ingredientData, carbs: e.target.value})} />
+      <TextField name="fats" variant="outlined" type="number" label="Fats" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.fats} onChange={(e) => setIngredientData({...ingredientData, fats: e.target.value})} />
+      <TextField name="proteins" variant="outlined" type="number" label="Proteins" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.proteins} onChange={(e) => setIngredientData({...ingredientData, proteins: e.target.value})} />
+      <TextField name="fibers" variant="outlined" type="number" label="Fibers" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.fibers} onChange={(e) => setIngredientData({...ingredientData, fibers: e.target.value})} />
+      <TextField name="sugars" variant="outlined" type="number" label="Sugars" endAdornment={<InputAdornment position="end">g</InputAdornment>} fullWidth value={ingredientData.sugars} onChange={(e) => setIngredientData({...ingredientData, sugars: e.target.value})} />
+      <FormControlLabel name="is_dish" label="Available as dish?" control={<Checkbox checked={ingredientData.is_dish} onChange={(e) => setIngredientData({...ingredientData, is_dish: e.target.checked})} />} />
+      <Button variant="contained" type="submit" color="primary" size="large" fullWidth>Create</Button>
+      <Button variant="contained" onClick={clear} color="secondary" size="small" fullWidth>Clear</Button>
+
+    </form>
   )
 }
 
