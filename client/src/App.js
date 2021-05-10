@@ -1,14 +1,18 @@
 import React, { useEffect } from 'react'
-import { Container, AppBar, Typography, Grow, Grid } from '@material-ui/core'
+import { Container, Grow, Grid } from '@material-ui/core'
 import { useDispatch } from 'react-redux'
 
 import { getIngredients } from './actions/ingredients'
 import Ingredients from './components/ingredients/ingredients.js'
 import IngredientForm from './components/ingredient_form/ingredient_form.js'
-import IngredientsImg from './images/ingredients.png'
+import NavBar from './components/navbar/navbar'
+import useStyles from './style'
 
 // This component is a functional component
 const App = () => {
+  // Styles
+  const classes = useStyles();
+
   // Create a hook
   const dispatch = useDispatch()
 
@@ -18,15 +22,16 @@ const App = () => {
   }, [dispatch])
 
   return (
-    <Container maxwidth='lg'>
-      <AppBar position='static' color='inherit'>
+    <Container className={classes.root} maxwidth='lg'>
+      <NavBar title='Titolo'></NavBar>
+      {/* <AppBar position='static' color='inherit'>
         <Typography variant='h2' align='center'>
           Ingredients
         </Typography>
         <img src={IngredientsImg} alt='ingredients' height='60' />
-      </AppBar>
+      </AppBar> */}
       <Grow in>
-        <Container>
+        <Container  className={classes.content}>
           <Grid container justify='space-between' alignItems='stretch' spacing={3}>
             <Grid item xs={12} sm={7}>
               <Ingredients />
