@@ -13,14 +13,16 @@ const app = express()
 // PUT THIS BEFORE OTHER SETTINGS!!
 app.use(cors())
 
+// Set a (large) limit to the request size (for images)
+// DEFINE THE OPTIONS BEFORE THE ROUTES!!!
+app.use(express.json({ limit: '10mb', extended: true }))
+app.use(express.urlencoded({ limit: '10mb', extended: true }))
+
 // Setup a prefix for ingredients route.
 // i.e. if you specified a route /yyy in the component
 // it will be reached as /prefix/yyy
 app.use('/ingredients', ingredientsRoutes)
 
-// Set a (large) limit to the request size (forimages)
-app.use(bodyParser.json({ limit: '10mb', extended: true }))
-app.use(bodyParser.urlencoded({ limit: '10mb', extended: true }))
 
 // Connection string to MongoDB Atlass database
 // mongodb+srv://nutrition_app:<password>@cluster0.yvpy9.mongodb.net/nutrition?retryWrites=true&w=majority
@@ -33,7 +35,7 @@ const PORT = process.env.PORT || 4000
 // Connect to mongoDB
 mongoose.connect(CONNECTION_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(
-    // If the onnection is successful
+    // If the connection is successful
     () => app.listen(PORT, () => console.log(`Server running on port: ${PORT}`))
 
   )

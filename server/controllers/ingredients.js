@@ -14,10 +14,11 @@ export const getIngredients = async (req, res) => {
   }
 }
 
-export const createIngredient = async (req, res) => {
-  const ingr = req.body
+export const createIngredient = async (req, res, next) => {
 
-  const newIngredient = new IngredientModel(ingr)
+  const in_body = req.body
+  
+  const newIngredient = new IngredientModel(in_body)
 
   try {
     await newIngredient.save()
