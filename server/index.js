@@ -1,5 +1,4 @@
 import express from 'express'
-import bodyParser from 'body-parser'
 import mongoose from 'mongoose'
 import cors from 'cors'
 import fs from 'fs'
@@ -22,7 +21,6 @@ app.use(express.urlencoded({ limit: '10mb', extended: true }))
 // i.e. if you specified a route /yyy in the component
 // it will be reached as /prefix/yyy
 app.use('/ingredients', ingredientsRoutes)
-
 
 // Connection string to MongoDB Atlass database
 // mongodb+srv://nutrition_app:<password>@cluster0.yvpy9.mongodb.net/nutrition?retryWrites=true&w=majority

@@ -11,7 +11,7 @@ import useStyles from './style'
 // This component is a functional component
 const App = () => {
   // Styles
-  const classes = useStyles();
+  const classes = useStyles()
 
   // Create a hook
   const dispatch = useDispatch()
@@ -23,7 +23,7 @@ const App = () => {
 
   return (
     <Container className={classes.root} maxwidth='lg'>
-      <NavBar title='Titolo'></NavBar>
+      <NavBar title='Titolo' />
       {/* <AppBar position='static' color='inherit'>
         <Typography variant='h2' align='center'>
           Ingredients
@@ -31,7 +31,7 @@ const App = () => {
         <img src={IngredientsImg} alt='ingredients' height='60' />
       </AppBar> */}
       <Grow in>
-        <Container  className={classes.content}>
+        <Container className={classes.content}>
           <Grid container justify='space-between' alignItems='stretch' spacing={3}>
             <Grid item xs={12} sm={7}>
               <Ingredients />
