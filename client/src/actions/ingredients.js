@@ -14,3 +14,14 @@ export const getIngredients = () => async (dispatch) => {
     console.log(error.message)
   }
 }
+
+export const createIngredient = (ingredient) => async (dispatch) => {
+
+  try {
+    const { data } = await api.createIngredient(ingredient);
+
+    dispatch({type: 'CREATE', payload: data})
+  } catch (error) {
+    console.log(error.message)
+  }
+}

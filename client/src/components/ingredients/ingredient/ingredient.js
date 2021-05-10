@@ -21,7 +21,6 @@ import useStyles from './style.js'
 const Ingredient = () => {
   // Initialize global store
   const ingredients = useSelector((state) => state.ingredients) // Check the key name in the reducer file
-  console.log(ingredients)
 
   // Use the classes from the style file
   const classes = useStyles()

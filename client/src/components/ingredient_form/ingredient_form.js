@@ -1,32 +1,40 @@
 import React, { useState } from 'react';
 import {Button, Checkbox, FormControlLabel, TextField, Typography} from '@material-ui/core';
 import InputAdornment from '@material-ui/core/InputAdornment';
+import { useDispatch } from 'react-redux';
+import { createIngredient } from '../../actions/ingredients';
 
 const Form = () => {
 
   // Use the state
-const [ingredientData, setIngredientData] = useState({
-  name: '',
-  ref_qt: 100,
-  is_dish: false,
-  kcals: 0,
-  carbs: 0,
-  fats: 0,
-  proteins: 0,
-  fibers: 0,
-  sugars: 0
-});
+  const [ingredientData, setIngredientData] = useState({
+    name: '',
+    ref_qt: 100,
+    is_dish: false,
+    kcals: 0,
+    carbs: 0,
+    fats: 0,
+    proteins: 0,
+    fibers: 0,
+    sugars: 0
+  });
+
+  // Use the dispatch
+  const dispatch = useDispatch();
 
   // Once the data has been prepared, submit it
-  const handleSubmit = () => {
-
+  const handleSubmit = (e) => {
+    // Prevent refresh in the browser
+    e.preventDefault();
+    
+    dispatch(createIngredient(ingredientData));
   }
 
   // Functions to clear the form fields
   const clear = () => {
 
   }
-  
+
   return (
     <form autoComplete="off" noValidate onSubmit={handleSubmit}>
       <Typography variant="h6">Add an ingredient</Typography>
