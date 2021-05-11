@@ -1,5 +1,28 @@
 # MERN stack
 [![Super-Linter](https://github.com/GGn0/training_mern/actions/workflows/superlinter.yml/badge.svg)](https://github.com/GGn0/training_mern/actions/workflows/superlinter.yml)
+
+## Test the code
+You need to start both the client and the server.  
+It's convenient to use two shells
+```sh
+cd server
+npm run start
+```
+```sh
+cd client
+npm run start
+```
+To authenticate to the DB, edit the file **server/init.js**:
+```javascript
+const CONNECTION_URL = `mongodb connection string`
+
+```
+And create a file **server/mongo_password** where you write the mongodb password
+
+Now you can access the site at [**localhost:3000**](https://localhost:3000)  
+
+---
+
 ## Mongo
 The raspberry has a 32 bit processor
 ```sh
