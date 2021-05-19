@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux'
 import { createIngredient } from '../../../actions/ingredients'
 import useStyles from './style'
 
-const Form = ({props}) => {
+const Form = ({ props }) => {
   // Use styles
   const classes = useStyles()
 
@@ -32,11 +32,10 @@ const Form = ({props}) => {
     // Prevent refresh in the browser
     e.preventDefault()
 
-    // dispatch(createIngredient(ingredientData))
+    dispatch(createIngredient(ingredientData))
 
     // Call parent function to handle send
     props.onSubmit()
-
   }
 
   // When the data changes, check that every field has been filled
@@ -47,7 +46,7 @@ const Form = ({props}) => {
     enable &= (ingredientData.ref_qt > 0)
     enable &= (ingredientData.kcals > 0)
 
-    if ( enable ) {
+    if (enable) {
       setDisableUpload(false)
     } else {
       setDisableUpload(true)
@@ -70,7 +69,7 @@ const Form = ({props}) => {
       <TextField name='proteins' variant='outlined' type='number' label='Proteins' InputProps={{ endAdornment: (<InputAdornment position='end'>g</InputAdornment>) }} fullWidth value={ingredientData.proteins} onChange={(e) => setIngredientData({ ...ingredientData, proteins: e.target.value })} />
       <TextField name='fibers' variant='outlined' type='number' label='Fibers' InputProps={{ endAdornment: (<InputAdornment position='end'>g</InputAdornment>) }} fullWidth value={ingredientData.fibers} onChange={(e) => setIngredientData({ ...ingredientData, fibers: e.target.value })} />
       <TextField name='sugars' variant='outlined' type='number' label='Sugars' InputProps={{ endAdornment: (<InputAdornment position='end'>g</InputAdornment>) }} fullWidth value={ingredientData.sugars} onChange={(e) => setIngredientData({ ...ingredientData, sugars: e.target.value })} />
-      <FormControlLabel name='is_dish' label='Available as dish?' control={<Checkbox  color='primary' checked={ingredientData.is_dish} onChange={(e) => setIngredientData({ ...ingredientData, is_dish: e.target.checked })} />} />
+      <FormControlLabel name='is_dish' label='Available as dish?' control={<Checkbox color='primary' checked={ingredientData.is_dish} onChange={(e) => setIngredientData({ ...ingredientData, is_dish: e.target.checked })} />} />
       <Button className={classes.buttonSubmit} variant='contained' type='submit' color='primary' size='large' fullWidth disabled={disableUpload}>Create</Button>
       <Button variant='contained' onClick={clear} color='secondary' size='large' fullWidth>Clear</Button>
     </form>

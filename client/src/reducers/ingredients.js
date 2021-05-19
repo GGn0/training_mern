@@ -14,4 +14,4 @@ const ingr = (ingredients = [], action) => {
   }
 }
 
-export default ingr;
+export default ingr
