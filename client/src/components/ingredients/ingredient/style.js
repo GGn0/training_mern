@@ -6,7 +6,7 @@ export default makeStyles((theme) => ({
   },
   root: {
     width: '100%',
-    maxWidth: 360,
+    maxWidth: 'auto',
     backgroundColor: theme.palette.background.paper
   },
   nested: {

@@ -5,7 +5,7 @@ const Ingredients = () => {
   return (
   // React fragment
     <>
-      <h1>Ingredients component</h1>
+      <h1>Ingredients list</h1>
       <Ingredient />
       <Ingredient />
     </>

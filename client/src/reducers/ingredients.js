@@ -3,7 +3,7 @@
 // The state cannot be null, therefore the initialization
 
 // As soon as an action is dispatched, the function will be executed
-export default (ingredients = [], action) => {
+const ingr = (ingredients = [], action) => {
   switch (action.type) {
     case 'FETCH_ALL':
       return action.payload
@@ -13,3 +13,5 @@ export default (ingredients = [], action) => {
       return ingredients
   }
 }
+
+export default ingr;
