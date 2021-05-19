@@ -6,10 +6,12 @@ You need to start both the client and the server.
 It's convenient to use two shells
 ```sh
 cd server
+npm install
 npm run start
 ```
 ```sh
 cd client
+npm install
 npm run start
 ```
 To authenticate to the DB, edit the file **server/init.js**:
