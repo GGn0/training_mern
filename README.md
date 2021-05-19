@@ -147,17 +147,18 @@ And initialize the react app with the command
 npx create-react-app ./
 ```
 
-Once the client has been initialized, it's possible toinstall the dependencies:
+Once the client has been initialized, it's possible to install the dependencies:
 
 ```sh
-npm imstall axios \
+npm install axios \
 moment \
 react-file-base64 \
 redux \
 react-redux \
 redux-thunk \
 @material-ui/core \
-@material-ui/icons
+@material-ui/icons \
+notistack
 ```
 
 - **axios**: will be used to make api requests
@@ -165,6 +166,7 @@ redux-thunk \
 - **react-file-base64**: to convert images into strings using base64 encoding
 - **redux** and **redux-thunk**: To use asynchronous actions
 - **@material-ui**: To use premade components and styles
+- **notistack**: To use notification bars
 
 > :warning: NOTE! If running 'node start' gives an error (something like "ENOSPC: System limit for number of file watchers reached")
 > Just increase the number of allowed file watchers:

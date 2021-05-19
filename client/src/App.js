@@ -1,15 +1,21 @@
 import React, { useEffect } from 'react'
-import { Container, Grow, Grid } from '@material-ui/core'
+import { Container, Grow, Grid, Fab, Button} from '@material-ui/core'
+import AddIcon from '@material-ui/icons/Add'
 import { useDispatch } from 'react-redux'
+import { SnackbarProvider, useSnackbar } from 'notistack';
 
 import { getIngredients } from './actions/ingredients'
 import Ingredients from './components/ingredients/ingredients.js'
-import IngredientForm from './components/ingredient_form/ingredient_form.js'
 import NavBar from './components/navbar/navbar'
 import useStyles from './style'
+import IngredientDialog from './components/Ingredient_dialog/ingredient_dialog'
+
 
 // This component is a functional component
 const App = () => {
+  // Open state for add-ingredient form
+  const [open, setOpen] = React.useState(false);
+
   // Styles
   const classes = useStyles()
 
@@ -21,30 +27,44 @@ const App = () => {
     dispatch(getIngredients())
   }, [dispatch])
 
+  // When the + button is pressed
+  const handleClickOpen = () => {
+    // set the open state of the add-ingredient form
+    setOpen(true);
+  }
+  // Dialog close action
+  const handleDialogClose = () => {
+      // set the open state of the add-ingredient form
+      setOpen(false);
+  }
+
   return (
-    <Container className={classes.root} maxwidth='lg'>
-      <NavBar title='Titolo' />
-      {/* <AppBar position='static' color='inherit'>
-        <Typography variant='h2' align='center'>
-          Ingredients
-        </Typography>
-        <img src={IngredientsImg} alt='ingredients' height='60' />
-      </AppBar> */}
-      <Grow in>
-        <Container className={classes.content}>
-          <Grid container justify='space-between' alignItems='stretch' spacing={3}>
-            <Grid item xs={12} sm={7}>
-              <Ingredients />
+    <SnackbarProvider
+      anchorOrigin={{
+        vertical: 'bottom',
+        horizontal: 'center',
+      }}
+    >
+      <Container className={classes.root} maxwidth='lg'>
+        <NavBar title='Ingredients' />
+        <Grow in>
+          <Container className={classes.content}>
+            <Grid container>
+              <Grid item xs={12}>
+                <Ingredients />
+              </Grid>
             </Grid>
-            <Grid item xs={12} sm={4}>
-              <IngredientForm />
-            </Grid>
-          </Grid>
-        </Container>
+          <Fab color="primary" aria-label="add" size="medium" className={classes.addButton} onClick={handleClickOpen}>
+            <AddIcon />
+          </Fab>
 
-      </Grow>
+          <IngredientDialog props={{open: open, handleDialogClose: handleDialogClose}}/>
 
-    </Container>
+          </Container>
+        </Grow>
+        
+      </Container>
+    </SnackbarProvider>
   )
 }
 
