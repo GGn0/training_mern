@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 export default makeStyles((theme) => ({
   table: {
-    maxWidth: 650
+    maxWidth: 'auto'
   },
   root: {
     width: '100%',
@@ -11,6 +11,9 @@ export default makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing(4)
+  },
+  lastRow: {
+    borderBottom: 'none'
   }
 
 }))

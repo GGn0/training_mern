@@ -7,9 +7,7 @@ import Collapse from '@material-ui/core/Collapse'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 
-import Table from '@material-ui/core/Table'
-import TableCell from '@material-ui/core/TableCell'
-import TableRow from '@material-ui/core/TableRow'
+import {Table, TableCell, TableRow} from '@material-ui/core'
 
 import Check from '@material-ui/icons/Check'
 import Clear from '@material-ui/icons/Clear'
@@ -40,7 +38,7 @@ const Ingredient = () => {
   }
 
   // To be read from db: is visible as a dish?
-  const isDish = true
+  const isDish = false
 
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
@@ -57,36 +55,36 @@ const Ingredient = () => {
             <ListItem className={classes.nested}>
               <Table className={classes.table}>
                 <TableRow>
-                  <TableCell variant='head'>Serving</TableCell>
+                  <TableCell>Serving</TableCell>
                   <TableCell align='right'>100&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Calories</TableCell>
+                  <TableCell>Calories</TableCell>
                   <TableCell align='right'>0&nbsp;kcal</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Fat</TableCell>
+                  <TableCell>Fat</TableCell>
                   <TableCell align='right'>1&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Carbs</TableCell>
+                  <TableCell>Carbs</TableCell>
                   <TableCell align='right'>2&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Proteins</TableCell>
+                  <TableCell>Proteins</TableCell>
                   <TableCell align='right'>3&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Fibers</TableCell>
+                  <TableCell>Fibers</TableCell>
                   <TableCell align='right'>4&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Sugar</TableCell>
+                  <TableCell>Sugar</TableCell>
                   <TableCell align='right'>5&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
-                  <TableCell variant='head'>Is dish</TableCell>
-                  <TableCell align='right'>{isDish ? <Check color='primary' /> : <Clear color='secondary' />}</TableCell>
+                  <TableCell className={classes.lastRow}>Is dish</TableCell>
+                  <TableCell align='right' className={classes.lastRow}>{isDish ? <Check color='primary' /> : <Clear color='secondary' />}</TableCell>
                 </TableRow>
               </Table>
             </ListItem>
