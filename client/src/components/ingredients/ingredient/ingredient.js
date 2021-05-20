@@ -13,13 +13,9 @@ import Check from '@material-ui/icons/Check'
 import Clear from '@material-ui/icons/Clear'
 
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-
 import useStyles from './style.js'
 
-const Ingredient = () => {
-  // Initialize global store
-  // const ingredients =
-  useSelector((state) => state.ingredients) // Check the key name in the reducer file
+const Ingredient = ({ingredient}) => {
 
   // Use the classes from the style file
   const classes = useStyles()
@@ -37,9 +33,6 @@ const Ingredient = () => {
     setOpen(false)
   }
 
-  // To be read from db: is visible as a dish?
-  const isDish = false
-
   return (
     <ClickAwayListener onClickAway={handleClickAway}>
       <List
@@ -48,7 +41,7 @@ const Ingredient = () => {
       >
         <ListItem button onClick={handleClick}>
           {open ? <ExpandLess /> : <ExpandMore />}
-          <ListItemText primary='Ingredient element' />
+          <ListItemText primary={ingredient.name} />
         </ListItem>
         <Collapse in={open} timeout='auto' unmountOnExit>
           <List component='div' disablePadding>
@@ -56,35 +49,35 @@ const Ingredient = () => {
               <Table className={classes.table}>
                 <TableRow>
                   <TableCell>Serving</TableCell>
-                  <TableCell align='right'>100&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.ref_qt}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Calories</TableCell>
-                  <TableCell align='right'>0&nbsp;kcal</TableCell>
+                  <TableCell align='right'>{ingredient.kcals}&nbsp;kcal</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Fat</TableCell>
-                  <TableCell align='right'>1&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.fats}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Carbs</TableCell>
-                  <TableCell align='right'>2&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.carbs}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Proteins</TableCell>
-                  <TableCell align='right'>3&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.proteins}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Fibers</TableCell>
-                  <TableCell align='right'>4&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.fibers}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell>Sugar</TableCell>
-                  <TableCell align='right'>5&nbsp;g</TableCell>
+                  <TableCell align='right'>{ingredient.sugars}&nbsp;g</TableCell>
                 </TableRow>
                 <TableRow>
                   <TableCell className={classes.lastRow}>Is dish</TableCell>
-                  <TableCell align='right' className={classes.lastRow}>{isDish ? <Check color='primary' /> : <Clear color='secondary' />}</TableCell>
+                  <TableCell align='right' className={classes.lastRow}>{ingredient.is_dish ? <Check color='primary' /> : <Clear color='secondary' />}</TableCell>
                 </TableRow>
               </Table>
             </ListItem>
