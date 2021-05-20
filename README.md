@@ -42,7 +42,7 @@ The server side of the application is handled by Node and Express
 The server side of the project is stored in the "server" folder.
 
 ## React
-React handles the web interface of the appliation and can be found in the "client" folder.
+React handles the web interface of the application and can be found in the "client" folder.
 
 ---
 
@@ -104,7 +104,7 @@ npm init
 ```
 Follow the instruction on screen to generate the package.json
 
-Now it's possile to install the dependencies
+Now it's possible to install the dependencies
 ```sh
 npm install body-parser \
 cors \
@@ -119,7 +119,7 @@ fs
 - **express**: will be the framework to create the routing of the app
 - **mongoose**: to create models for the data on our database
 - **nodemon**: to restart the server after changes
-- **fs**: to temporarely read the db password from a local file
+- **fs**: to temporarily read the db password from a local file
 
 Edit the package.js file to allow the usage of the new import syntax:
 
